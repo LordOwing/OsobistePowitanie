@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Osobiste powitanie"
         android:textStyle="bold"
-        android:textSize="100dp"
+        android:textSize="60dp"
         android:layout_marginBottom="50dp"
         />
     <TextView
@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Podaj swoję imię"
-
-        android:textSize="40dp"
+        android:gravity="center"
+        android:textSize="20dp"
         android:layout_marginBottom="50dp"
         />
 

@@ -21,7 +21,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Button guzik;
     private EditText edit;
     private  String tekst;
+    private  Bitmap bitmap;
     private static final String CHANNEL_ID = "My_channel_id";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +41,13 @@ public class MainActivity extends AppCompatActivity {
         createNotificationChannel();
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
         guzik = findViewById(R.id.guzik);
         edit = findViewById(R.id.imie);
         guzik.setOnClickListener(v->{
             tekst = edit.getText().toString();
             if(tekst.length()>0){
-
+                showAlertDialog();
             }else {
                 Toast.makeText(MainActivity.this, "Proszę wpisać swoje imię!", Toast.LENGTH_SHORT).show();
             }
@@ -97,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.banan)
+                .setSmallIcon(R.drawable.cos2)
                 .setContentTitle("Witaj")
                 .setContentText("Miło cię widzieć " + tekst + "!" )
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
